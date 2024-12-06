@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class PartOne_Two{
-    
+public class PartOne_Two {
+
     public int frequencyOf(int num, List<Integer> array) {
         int start = 0;
         int end = array.size() - 1;
@@ -48,13 +48,14 @@ public class PartOne_Two{
     public Map<Integer, Integer> mapFrequency(List<Integer> array) {
         @SuppressWarnings("Convert2Diamond")
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        
+
         for (Integer e : array) {
             map.put(e, map.getOrDefault(e, 0) + 1);
         }
 
         return map;
     }
+
     public static void main(String[] args) throws Exception {
         PartOne_Two p = new PartOne_Two();
 
@@ -64,13 +65,13 @@ public class PartOne_Two{
         FileReader file = new FileReader("./input.txt");
         try (BufferedReader reader = new BufferedReader(file)) {
             String line;
-            
+
             while ((line = reader.readLine()) != null) {
                 String tokens[] = line.split("   ");
                 arrayOne.add(Integer.valueOf(tokens[0]));
                 arrayTwo.add(Integer.valueOf(tokens[1]));
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw e;
         }
 
@@ -82,16 +83,16 @@ public class PartOne_Two{
         // Map<Integer, Integer> frequencyMap = new HashMap<Integer, Integer>();
 
         // for (Integer e : arrayOne) {
-        //     if (frequencyMap.containsKey(e)) {
-        //         similarityScore.put(e, similarityScore.get(e) + frequencyMap.get(e));
-        //     }
+        // if (frequencyMap.containsKey(e)) {
+        // similarityScore.put(e, similarityScore.get(e) + frequencyMap.get(e));
+        // }
 
-        //     else {
-        //         frequencyMap.put(e, e * p.frequencyOf(e, arrayTwo));
-        //         similarityScore.put(e, frequencyMap.get(e));
-        //     }
+        // else {
+        // frequencyMap.put(e, e * p.frequencyOf(e, arrayTwo));
+        // similarityScore.put(e, frequencyMap.get(e));
+        // }
 
-        //     System.out.println(e + " is " + similarityScore.get(e));
+        // System.out.println(e + " is " + similarityScore.get(e));
         // }
 
         Map<Integer, Integer> frequecyMap = p.mapFrequency(arrayTwo);
